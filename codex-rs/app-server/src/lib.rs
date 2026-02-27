@@ -65,6 +65,7 @@ mod models;
 mod outgoing_message;
 mod thread_state;
 mod thread_status;
+mod tracing;
 mod transport;
 
 pub use crate::error_code::INPUT_TOO_LARGE_ERROR_CODE;
@@ -674,6 +675,7 @@ pub async fn run_main_with_transport(
                                             .process_request(
                                                 connection_id,
                                                 request,
+                                                transport,
                                                 &mut connection_state.session,
                                                 &connection_state.outbound_initialized,
                                             )
